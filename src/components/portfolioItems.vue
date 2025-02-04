@@ -1,42 +1,63 @@
-<script setup lang="ts">
-defineProps<{
-  title: string;
-  description: string;
-  link: string;
-}>();
-
-const openProject = (url: string) => {
-  window.open(url, "_blank");
-};
-</script>
-
 <template>
-  <div
-    class="project-card"
-    @click="openProject(link)"
-  >
-    <div class="project-content">
-      <h3>{{ title }}</h3>
-      <p>{{ description }}</p>
-    </div>
+  <div class="project-card">
+    <h2>{{ project.title }}</h2>
+    <p>{{ project.description }}</p>
+    <a :href="project.link" target="_blank" class="project-link">View Project</a>
   </div>
 </template>
 
+<script lang="ts">
+import { defineComponent, type PropType } from 'vue';
+
+export default defineComponent({
+  name: 'ProjectCard',
+  props: {
+    project: {
+      type: Object as PropType<{ id: number; title: string; description: string; link: string }>,
+      required: true,
+    },
+  },
+});
+</script>
+
 <style scoped>
 .project-card {
-  cursor: pointer;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.2s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background: grey;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
 
-}
 .project-card:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-.project-content {
-  padding: 10px;
+
+.project-card h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.project-card p {
+  color: #666;
+}
+
+.project-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.project-link:hover {
+  background-color: #0056b3;
 }
 </style>
 

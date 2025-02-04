@@ -49,7 +49,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import axios from 'axios';
 
 const form = ref({
   name: '',
@@ -62,29 +61,43 @@ const errorMessage = ref('');
 
 const submitForm = async () => {
   try {
-    const response = await axios.post('https://xyz1234.execute-api.us-west-2.amazonaws.com/contact', {
-      name: form.value.name,
-      email: form.value.email,
-      message: form.value.message
+    const response = await fetch('https://rkb76uhx55.execute-api.us-east-1.amazonaws.com', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: form.value.name,
+        email: form.value.email,
+        message: form.value.message
+      }),
     });
+    const result = await response.json();
 
-    console.log('Response:', response);
-    formSubmitted.value = true;
-    form.value = { name: '', email: '', message: '' };
+    if (response.ok) {
+      formSubmitted.value = true;
+      form.value = { name: '', email: '', message: '' };
+    } else {
+      errorMessage.value = result.error || 'Failed to submit the form';
+    }
   } catch (error) {
     console.error('Error:', error);
-    errorMessage.value = 'There was an issue submitting the form. Please try again later.';
+    errorMessage.value = 'Failed to submit the form. Please try again later.';
   }
 };
 </script>
 
 <style scoped>
 .contact-page {
+  background-color: black;
+  color: white;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
   font-family: Arial, sans-serif;
-
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
@@ -112,6 +125,8 @@ textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  background-color: #333;
+  color: white;
 }
 
 textarea {
@@ -127,6 +142,7 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  transition: background-color 0.3s;
 }
 
 button:hover {
@@ -137,6 +153,12 @@ button:hover {
   margin-top: 20px;
   text-align: center;
   color: #28a745;
+}
+
+.error-message {
+  margin-top: 20px;
+  text-align: center;
+  color: #dc3545;
 }
 </style>
 

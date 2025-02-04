@@ -12,9 +12,13 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
+import { RouterLink } from "vue-router"; // Add this line
 
 export default defineComponent({
   name: "Navbar",
+  components: {
+    RouterLink, // Add this line
+  },
   setup() {
     const isMenuOpen = ref<boolean>(false);
 
@@ -33,6 +37,7 @@ export default defineComponent({
   top: 0;
   left: 0;
   width: 100%;
+  max-width: 100vw; /* Ensure the navbar does not exceed the viewport width */
   background: #333;
   color: white;
   padding: 10px 20px;
@@ -40,6 +45,7 @@ export default defineComponent({
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .menu-button {
@@ -48,7 +54,6 @@ export default defineComponent({
   color: white;
   font-size: 24px;
   cursor: pointer;
-   /* Hide menu button on larger screens */
 }
 
 .menu {
@@ -61,6 +66,7 @@ export default defineComponent({
   flex-direction: column;
   text-align: center;
   padding: 10px 0;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 .menu a {
@@ -83,15 +89,8 @@ export default defineComponent({
     flex-direction: row;
     gap: 20px;
   }
-}
-@media (min-width: 768px) {
   .menu-button {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-    display: none;/* Hide menu button on larger screens */
+    display: none; /* Hide menu button on larger screens */
   }
 }
 </style>

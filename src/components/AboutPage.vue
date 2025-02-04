@@ -3,7 +3,10 @@
     <div class="container">
       <div class="center-section">
         <h1>Welcome</h1>
-        <p>Meet Brittany Bunbury-Milton</p>
+        <div class="intro-section">
+          <p class="intro-text">Meet Brittany Bunbury-Milton</p>
+          <img src="@/assets/photo.jpg" alt="Profile Photo" class="profile-photo">
+        </div>
       </div>
 
       <!-- Regular Box section if needed -->
@@ -104,8 +107,10 @@ const programmingItems = ref([
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  width: 100%;
   background-color: black;
   padding: 0 20px;
+  color: white;
 }
 
 /* Centered Content Container */
@@ -122,7 +127,26 @@ const programmingItems = ref([
 .center-section {
   text-align: center;
   margin-bottom: 30px;
+  background-color: black;
   color: white;
+}
+
+.intro-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.intro-text {
+  font-size: 3em;
+}
+
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* Regular Box Styling */
@@ -134,6 +158,7 @@ const programmingItems = ref([
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: white;
+  font-size: large;
 }
 
 .progress-container {
@@ -141,7 +166,7 @@ const programmingItems = ref([
   flex-direction: column;
   align-items: start;
   font-family: Arial, sans-serif;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .label {
@@ -149,6 +174,7 @@ const programmingItems = ref([
 }
 
 .progress-bar {
+  margin-bottom: 5px;
   display: flex;
   gap: 4px;
 }
@@ -169,6 +195,7 @@ const programmingItems = ref([
   justify-content: space-between;
   gap: 20px;
   height: 100%;
+  
 }
 
 .column {
@@ -179,6 +206,7 @@ const programmingItems = ref([
   background-color: black;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
 }
 
 /* Responsive Design for Small Screens */

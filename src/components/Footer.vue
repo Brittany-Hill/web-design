@@ -10,15 +10,15 @@
 
 <style scoped>
 .footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
+  left: 0;
+  width: 100%;
   background-color: #333;
   color: white;
   text-align: center;
   padding: 20px;
-  margin-top: 50px;
-  width: 100%;
-   /* Ensure it doesn't stretch too wide */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 </style>

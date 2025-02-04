@@ -1,46 +1,32 @@
 <script setup lang="ts">
 import ProjectCard from './portfolioItems.vue';
+import { ref } from 'vue';
 
-const projects = [
+const projects = ref([
   {
+    id: 1,
     title: "Portfolio Website",
     description: "A Vue 3 & TypeScript-based portfolio.",
     link: "https://your-portfolio.com"
   },
   {
-    title: " WIP: Moon Scraper",
+    id: 2,
+    title: "WIP: Moon Scraper",
     description: "A Vue3, Express, Nodejs & TypeScript-based web scraper to assist in DMCA take downs with the use of a headless browser API called Puppeteer",
     link: "https://github.com"
   }
-
-];
+]);
 </script>
 
 <template>
   <div class="page-container">
-    <div class="container">
-      <!-- Center Section -->
-      <div class="center-section">
-        <h1>Welcome to Vue!</h1>
-      </div>
 
-      <!-- Two Columns Section -->
-      <div class="columns">
-        <!-- Column 1 -->
-        <div class="column">
-          <div class="box">
-            <ProjectCard v-bind="projects[0]" />
-          </div>
-        </div>
-
-        <!-- Column 2 -->
-        <div class="column">
-          <div class="box">
-            <ProjectCard v-bind="projects[1]" />
-          </div>
-        </div>
-      </div>
+  <div class="portfolio-home">
+    <h1>My Projects</h1>
+    <div class="projects">
+      <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
     </div>
+  </div>
   </div>
 </template>
 
@@ -59,7 +45,7 @@ const projects = [
 .container {
   max-width: 1200px;
   width: 100%;
-  padding: 20px;
+  /* padding: 20px; */
   background-color: black;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -107,5 +93,47 @@ const projects = [
     flex-direction: column;
     gap: 10px;
   }
+}
+
+.portfolio-home {
+  padding: 20px;
+  color: white;
+  background-color: black;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  
+}
+
+.project {
+  background-color: black;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.project:hover {
+  transform: translateY(-10px);
+}
+
+.project h2 {
+  margin-top: 0;
+}
+
+.project p {
+  color: #666;
 }
 </style>
