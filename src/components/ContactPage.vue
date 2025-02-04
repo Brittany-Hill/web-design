@@ -49,10 +49,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-// import { generateClient } from "aws-amplify/api"
-// import type { Schema } from "../../amplify/data/resource"
-// const client = generateClient<Schema>()
+// import axios from 'axios';
 
+const WEB3FORMS_ACCESS_KEY ="d36f3135-7068-45bf-a9f4-cf05c93f3d4c"
 
 const form = ref({
   name: '',
@@ -62,34 +61,34 @@ const form = ref({
 
 const formSubmitted = ref(false);
 const errorMessage = ref('');
-const WEB3FORMS_ACCESS_KEY = "d36f3135-7068-45bf-a9f4-cf05c93f3d4c";
 
 const submitForm = async () => {
-  try{
-  const response = await fetch('https://api.web3forms.com/submit', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                apikey: WEB3FORMS_ACCESS_KEY,
-                name: form.value.name,
-                email: form.value.email,
-                message: form.value.message
-            }),
+ try {
+    const response :any = await fetch('https://api.web3forms.com/submit', {
+      method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            apikey: WEB3FORMS_ACCESS_KEY,
+            name: form.value.name,
+            email: form.value.email,
+            message: form.value.message,
+          }),
         });
-        if (response.ok) {
-          formSubmitted.value = true;
-          form.value.name = '';
-          form.value.email = '';
-          form.value.message = '';
-        } else {
-          errorMessage.value = 'There was an error submitting the form. Please try again.';
-        }
-      } catch (error) {
-        errorMessage.value = 'There was an error submitting the form. Please try again.';
-      }
+    const result = await response.json();
+    if (response.ok) {
+      formSubmitted.value = true;
+      form.value = { name: '', email: '', message: '' };
+    } else {
+      errorMessage.value = result.error || 'Failed to submit the form';
     }
+  } catch (error) {
+    console.error('Error:', error);
+    errorMessage.value = 'Failed to submit the form. Please try again later.';
+  }
+};
 </script>
 
 <style scoped>
