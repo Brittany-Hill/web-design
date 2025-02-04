@@ -3,7 +3,7 @@ import navBar from "@/components/NavBar.vue";
 </script>
 
 <template>
-  <nav-bar/>
+  <navBar/>
 </template>
 
 <style scoped>
