@@ -1,6 +1,8 @@
+
 // import fetch from 'node-fetch';
 // import { Schema } from '../../data/resource';
 //  // Ensure this path is correct and the module exists
+
 
 // const WEB3FORMS_ACCESS_KEY = "d36f3135-7068-45bf-a9f4-cf05c93f3d4c";
 
@@ -20,7 +22,6 @@
 //                 message
 //             }),
 //         });
-
 //         const result = 'Your message has been sent successfully!';
 //     } catch (error) {
 //         console.error(error);
@@ -28,3 +29,4 @@
 //         console.error(error);
 //     }
 // };
+
