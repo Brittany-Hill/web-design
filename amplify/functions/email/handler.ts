@@ -1,4 +1,4 @@
-import { APIGatewayEvent, Context, Callback } from 'aws-lambda';
+import type { APIGatewayEvent, Context, Callback } from 'aws-lambda';
 import fetch from 'node-fetch';
 
 const WEB3FORMS_ACCESS_KEY = "d36f3135-7068-45bf-a9f4-cf05c93f3d4c";
