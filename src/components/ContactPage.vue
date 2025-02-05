@@ -163,5 +163,21 @@ button:hover {
   text-align: center;
   color: #dc3545;
 }
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 10px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
 </style>
 

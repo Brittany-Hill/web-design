@@ -195,7 +195,6 @@ const programmingItems = ref([
   justify-content: space-between;
   gap: 20px;
   height: 100%;
-  
 }
 
 .column {
@@ -213,6 +212,28 @@ const programmingItems = ref([
 @media (max-width: 768px) {
   .container {
     padding: 10px;
+  }
+
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-text {
+    font-size: 2em;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .columns {
+    flex-direction: column;
+  }
+
+  .column {
+    margin-bottom: 20px;
   }
 }
 </style>
