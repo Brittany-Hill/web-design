@@ -6,14 +6,14 @@ const projects = ref([
   {
     id: 1,
     title: "Portfolio Website",
-    description: "A Vue 3 & TypeScript-based portfolio.",
-    link: "https://your-portfolio.com"
+    description: "A Vue 3 & TypeScript-based portfolio. This is the current page you are on.",
+    link: "https://main.d1xo5xqzqtrxuq.amplifyapp.com"
   },
   {
     id: 2,
     title: "WIP: Moon Scraper",
     description: "A Vue3, Express, Nodejs & TypeScript-based web scraper to assist in DMCA take downs with the use of a headless browser API called Puppeteer",
-    link: "https://github.com"
+    link: "https://github.com/Brittany-Hill/Moon-Scraper"
   }
 ]);
 </script>
