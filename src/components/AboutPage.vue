@@ -16,7 +16,7 @@
           <h3>Education: </h3>
           <ul>
             <li>
-              Bachelors in Software Design and Development - From The University of West Florida
+              Bachelors in Software Design and Development - From The University of West Florida.
             </li>
           </ul>
           <h3>Extracurriculars:</h3>
@@ -82,21 +82,20 @@ import {ref} from 'vue';
 
 const knowledgeItems = ref([
   {label: 'Web Development', filledSegments: 3},
-  {label: 'Database Management', filledSegments: 3},
+  {label: 'Database Management', filledSegments: 2},
   {label: 'Problem Solving', filledSegments: 4},
-  {label: 'Source Control Systems', filledSegments: 3},
-  {label: 'Unit Testing', filledSegments: 2},
+  {label: 'GitHub', filledSegments: 3},
+  {label: 'Unit Testing', filledSegments: 1},
   {label: 'Microsoft Office Suite', filledSegments: 5}
 ]);
 
 const programmingItems = ref([
-  {label: 'Java', filledSegments: 4},
+  {label: 'Java', filledSegments: 3},
   {label: 'JavaScript', filledSegments: 3},
-  {label: 'C++', filledSegments: 3},
-  {label: 'SQL', filledSegments: 3},
-  {label: 'Python', filledSegments: 2},
-  {label: 'AWS', filledSegments: 2}
-
+  {label: 'C++', filledSegments: 2},
+  {label: 'SQL', filledSegments: 2},
+  {label: 'Python', filledSegments: 1},
+  {label: 'AWS Suite', filledSegments: 2}
 ]);
 </script>
 

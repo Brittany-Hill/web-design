@@ -10,15 +10,25 @@
 
 <style scoped>
 .footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
-  left: 0;
+  left: 0; 
+  right: 0; 
   width: 100%;
-  background-color: #333;
+  background: #333;
   color: white;
+  padding: 0; 
+  display: flex;
   text-align: center;
-  padding: 20px;
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  align-items: center;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  box-sizing: border-box;
+   
+}
+@media (min-width: 768px) {
+  .footer {
+    padding-top: 30px;
+  }
 }
 
 </style>
