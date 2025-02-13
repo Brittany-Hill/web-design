@@ -19,12 +19,18 @@ import FooterView from './views/FooterView.vue';
   background-color: black;
   display: flex;
   flex-direction: column;
+  min-width: 100vw;
   min-height: 100vh;
+  
+}
+NavBar, FooterView {
+  flex-shrink: 0;
 }
 .main-content {
-  flex: 1;
+  padding-top: 15px;
+  flex-grow: 1; /* Ensure main content takes up remaining space */
   background-color: black;
+  
 }
-
 </style>
 

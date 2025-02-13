@@ -1,6 +1,6 @@
 <template>
   <div class="contact-page">
-    <h1>Contact Us</h1>
+    <h1>Contact Me</h1>
     <form @submit.prevent="submitForm" class="contact-form">
       <div class="form-group">
         <label for="name">Name</label>
